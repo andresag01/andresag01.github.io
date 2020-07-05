@@ -1,6 +1,9 @@
 # Some useful commands
 
 serve:
-	jekyll serve --watch
+	jekyll serve --watch --future
 
-.PHONY: serve
+clean:
+	jekyll clean
+
+.PHONY: serve clean
