@@ -41,45 +41,45 @@ got when I tell LLVM to generate code for the ARM Cortex M0 processor:
 ; r0 holds the ctx pointer
 
   ; Compare is224 with 0
-	cmp	r1, #0
+  cmp r1, #0
 
   ; Branch if is224 == 0 i.e. SHA-256 selected
-	beq	.LBB0_2
+  beq .LBB0_2
   ; Load SHA-224 constant from memory
-	ldr	r3, .LCPI0_1
-	b	.LBB0_3
+  ldr r3, .LCPI0_1
+  b .LBB0_3
 .LBB0_2:
   ; Load SHA-256 constant from memory
-	ldr	r3, .LCPI0_0
+  ldr r3, .LCPI0_0
 .LBB0_3:
   ; Store constant at ctx->state[7]
-	str	r3, [r0, #36]
+  str r3, [r0, #36]
 
   ; Compare is224 with 0... again?
-	cmp	r1, #0
+  cmp r1, #0
   ; Branch if is224 == 0 i.e SHA-256 selected
-	beq	.LBB0_5
+  beq .LBB0_5
   ; Load SHA-224 constant from memory
-	ldr	r3, .LCPI0_3
-	b	.LBB0_6
+  ldr r3, .LCPI0_3
+  b .LBB0_6
 .LBB0_5:
   ; Load SHA-256 constant from memory
-	ldr	r3, .LCPI0_2
+  ldr r3, .LCPI0_2
 .LBB0_6:
   ; Store constant at ctx->state[6]
-	str	r3, [r0, #32]
+  str r3, [r0, #32]
 
   ; Compare is224 with 0... in case it changed?
-	cmp	r1, #0
+  cmp r1, #0
   ...
 
   ; The pattern repeats for every pair of constants...
 
   ; Constant pool
 .LCPI0_0:
-	.long	1541459225              @ 0x5be0cd19
+  .long 1541459225              @ 0x5be0cd19
 .LCPI0_1:
-	.long	3204075428              @ 0xbefa4fa4
+  .long 3204075428              @ 0xbefa4fa4
 ...
 ```
 
