@@ -16,10 +16,11 @@
 title: Source Code Artisan
 email: aa1399@my.bristol.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  A personal blog
+  A personal blog on computing topics
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  andresag01
+linkedin_username: andresag
 
 # Build settings
 markdown: kramdown
