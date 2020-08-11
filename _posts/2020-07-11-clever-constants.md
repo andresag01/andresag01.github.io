@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Compiler will Optimize It #1: Clever Constants"
+title:  "'The Compiler will Optimize It' #1: Clever Constants"
 date:   2020-07-11 11:21:09 +0100
 ---
 

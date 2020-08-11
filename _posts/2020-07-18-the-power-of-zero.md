@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Compiler will Optimize It #2: The Power of Zero"
+title:  "'The Compiler will Optimize It' #2: The Power of Zero"
 date:   2020-07-18 11:21:09 +0100
 ---
 
