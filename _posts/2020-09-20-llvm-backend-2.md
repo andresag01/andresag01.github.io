@@ -36,20 +36,21 @@ a new triple:
 
 1. Declare a new architecture for the triple in
 `llvm/include/llvm/ADT/Triple.h` (see
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-d7b411cd3013bd00f5ff8793bf86adf1)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-185a32f321f9849c118053f8133d402a6f97ba3bf1a1f3ee14064d7716537c45)).
 1. Provide a type conversions between string and Triple architecture (see
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-1f7bb0801c96c68a0bc89d3b413194d3R57),
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-1f7bb0801c96c68a0bc89d3b413194d3R293)
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R57),
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R150),
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R293)
 and
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-1f7bb0801c96c68a0bc89d3b413194d3R427)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R427)).
 1. Indicate what type of object format the backend generates, e.g. ELF, COFF,
 etc. RISCW will work with ELF only (see
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-1f7bb0801c96c68a0bc89d3b413194d3R702)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R702)).
 1. Indicate the architecture variant, e.g. 32- or 64-bit, and the pointer size (see
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-1f7bb0801c96c68a0bc89d3b413194d3R1349),
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-1f7bb0801c96c68a0bc89d3b413194d3R1394)
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R1349),
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R1394)
 and
-[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-1f7bb0801c96c68a0bc89d3b413194d3R1265)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-a6431c77551c3d00b1ac20938a6a95bd3f50c5ed7d126e7f25b5b55fe55767c7R1265)).
 
 **NOTE:** You can find more information about triples
 [here](https://wiki.osdev.org/Target_Triplet) and
@@ -65,22 +66,22 @@ Since RISCW uses ELF, this is a good time to configure the following parameters
 related to that:
 
 1. Create a new machine architecture enum for RISCW (see
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-4a4a8f5a9e3903a82c1002e791997d13R314)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-154cb05b335ba56c78d9e24e3a0020741fb990f5eeb6972c39f8d7eb46d03215R314)).
 This integer is encoded in the `e_machine` field of the ELF header. The
 value is not arbitrary; it must match the registered architecture types for
 the ELF format e.g. 0xF3 for RISCV.  But we will set it to an unused value
 for now.
 1. Declare the ELF relocation types (see
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-4a4a8f5a9e3903a82c1002e791997d13R636)
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-154cb05b335ba56c78d9e24e3a0020741fb990f5eeb6972c39f8d7eb46d03215R636)
 and
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-e60963aca97496db5a18d45b14901976)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-cb4cf96df700591fda3ce01a86a303c5402af582993fc7e385aeb65b19c129ab)).
 Again, these are architecture-dependent and those for RISCV are listed
 [here](https://github.com/riscv/riscv-elf-psabi-doc/blob/master/riscv-elf.md#relocations).
 At this stage, we will simply put place-holders for RISCW.
 1. The file format name (see
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-b284789cf83321b8075dc185287c06d7R1083)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-233e5d37dd601982330d1168360551576a27b0d09e39cb23ab0b4c020898c444R1083)).
 1. Indicate the target triple for a given class (see
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-b284789cf83321b8075dc185287c06d7R1166)).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-233e5d37dd601982330d1168360551576a27b0d09e39cb23ab0b4c020898c444R1166)).
 Currently, the class in the ELF header is a byte that encodes whether the
 format is 32- or 64- bit.
 
@@ -103,11 +104,11 @@ it use? what linker? which include paths? etc
 
 We can tell clang about RISCW by adding a new target class `RISCWTargetInfo`
 that is instanciated alongside the existing LLVM targets as shown
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-9b38ea247d351ea81fad4edf576fe7e7).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-c8988599cfd2b4c841116e418af4bf906062bd837504abb472c51328fe6d4202).
 The class is declared and defined
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-18bf28d2fa41a332b6e5678b1e545195)
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-65d0aabd511c54bbbe83b2e8cd966a8a33343d0d9975c20fbee6f1107c556cf8)
 and
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-8ba9bdd701159e549d96f43c3409238c).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-6b8a32b344f2f5cb34138f64efb5257fcf22c4016f7f209e373f1a168298e629).
 There are a few important things to highlight in this code:
 
 * `RISCWTargetInfo` describes the data layout via a string. This
@@ -133,9 +134,9 @@ contains a lot more options that you can configure.
 
 Configuring the toolchain is relatively straight-forward. We simply need to
 implement a `RISCWToolChain` class that inherits from `Toolchain` as shown
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-74a3e6a3b3cfefaf68074ba8297d0278)
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-319fa9a953c803f15928a00ac01bc1f0ab138ced2eea28d475efc5b5ce502688)
 and
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-8f74ed562b82a9423d3f45a513dbb86c).
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-accd85034ba352dbdfea64b3dccba92aa6a8ca9de804b2e73151e7bab169874b).
 The code is mostly self-explanatory, but there are a lot more options that your
 target can modify by overriding the members of the `ToolChain` class (see
 [here](https://github.com/andresag01/llvm-project/blob/llvm-backend-riscw/clang/include/clang/Driver/ToolChain.h)).
@@ -155,7 +156,7 @@ the TableGen syntax. Additionally, TableGen files also describe important
 architecture-specific features like the number of registers and the procedure
 calling convention.
 * **Build files:** The directory for every backend must be declared
-[here](https://github.com/andresag01/llvm-project/commit/0ca6bb440f306fdcb3f748f4b084516c097491a5#diff-4469bce4d9393d609bf805f6109e4ae5),
+[here](https://github.com/andresag01/llvm-project/commit/274cfea0f9662f0ed49f6132b0424323d0b11750#diff-bbc88c8ee4f01236c43353c60fc06e961a341d9d93d78a144b0416146a2070e9R34),
 otherwise it will not be built. Additionally, the top directory for our target,
 i.e. `llvm/lib/Target/RISCW`, and every subdirectory must contain two build
 files: `CMakeLists.txt` and `LLVMBuild.txt`. The former adds source files and
