@@ -1,0 +1,14 @@
+.panel-info {
+    border: 4px solid #003366;
+}
+
+.panel-info-title {
+    background-color: #003366;
+    padding: 10px 10px 1px 10px;
+    color: white;
+    font-size: 120%;
+}
+
+.panel-info-body {
+    padding: 5px;
+}
