@@ -18,6 +18,8 @@ In this post, I will explain how this works and how you can use Git remote
 repositories without shooting-yourself-in-the-foot. I only assume that you
 are already familiar with the very basics of Git like commits and branches.
 
+{% include understanding-git-contents.md %}
+
 # Remotes
 
 Git relies on servers to version control a distributed project. The server

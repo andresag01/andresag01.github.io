@@ -26,6 +26,8 @@ key features. My hope is that after reading these posts you will understand
 enough of Git to know which feature works best for which situation in everyday
 usage without wrecking your repository!
 
+{% include understanding-git-contents.md %}
+
 # Versions, Commits and Graphs
 
 Coding takes a lot of effort! So hardware and software projects are developed
